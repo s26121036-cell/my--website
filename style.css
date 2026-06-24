@@ -1,0 +1,521 @@
+@charset "utf-8";
+
+/* ==========================================
+   全画面共通の基本設定
+   ========================================== */
+html {
+  scroll-behavior: smooth;
+}
+:target {
+  padding-top: 64px;
+}
+body {
+  font-family: sans-serif;
+  background-color: #fff1cf;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+h2 {
+  font-size: 26px;
+  font-weight: bold;
+  color: #6f4c5b;
+  text-align: center;
+  margin: 30px 0;
+}
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #6f4c5b;
+  text-align: center;
+}
+p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* テイクアウト画像のギャラリー（中央寄せ & 2列並び） */
+.takeout-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 20px auto 0;
+  max-width: 380px;
+}
+.takeout-gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  margin: 0;
+}
+
+/* 共通予約エリアの文字・ボタン装飾 */
+.site_reserve h3 {
+  margin: 4px 0;
+  font-size: 18px; /* 文字サイズを大きく (PC, 元は15px) */
+  color: #6f4c5b;
+  text-align: right;
+}
+.site_reserve h2 {
+  margin: 4px 0 12px 0;
+  font-size: 22px;
+  color: #d81b60;
+  text-align: right;
+}
+.site_reserve a,
+.access_info .btn {
+  display: inline-block;
+  background-color: #673ab7;
+  color: #fff;
+  padding: 10px 24px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+.site_reserve a:hover,
+.access_info .btn:hover {
+  background-color: #5e35b1;
+  transform: translateY(-1px);
+}
+
+/* ハンバーガーボタンのデフォルト非表示（PC） */
+.nav-toggle {
+  display: none;
+}
+
+/* ==========================================
+   PC表示用スタイル (画面幅 768px 以上)
+   ========================================== */
+@media screen and (min-width: 768px) {
+  header {
+    width: 960px;
+    margin: 32px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header .logo_img {
+    width: 500px;
+    margin: 0;
+  }
+  .site_reserve {
+    width: 400px;
+    text-align: right;
+  }
+  main {
+    width: 960px;
+    margin: 0 auto;
+  }
+  main section {
+    margin-bottom: 80px;
+  }
+
+  /* ナビゲーションメニュー */
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 50px 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: #6f4c5b;
+  }
+  nav ul li {
+    flex: 1;
+    text-align: center;
+  }
+  nav ul li a {
+    display: block;
+    padding: 16px 0;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  nav ul li a:hover {
+    background-color: #a37081;
+  }
+
+  /* パソコン用の画像6枚：上3枚・下3枚の綺麗な並び */
+  .event-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .event-gallery img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    margin: 0;
+  }
+
+  /* 各コーナーのロゴサイズ制限 */
+  .section_logo {
+    max-width: 600px;
+    margin: 40px auto 20px;
+  }
+
+  /* コンセプトPC表示 */
+  #main-concept img {
+    max-width: 600px;
+    margin-bottom: 15px;
+  }
+  #main-concept p {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  /* メニューPC表示：2列×2列で並べる */
+  .menu-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 20px;
+    margin-top: 30px;
+  }
+  .menu_category img {
+    max-width: 380px;
+    height: 240px;
+    object-fit: cover;
+  }
+  .menu_category ul,
+  .takeout-list {
+    width: 280px;
+    margin: 15px auto;
+    font-size: 18px; /* メニュー名の文字サイズを少し大きく (PC) */
+  }
+
+  /* マップ・カレンダーPC表示 */
+  .access_map iframe,
+  /* カレンダー全体の枠（中央寄せ & 最大幅の設定） */
+.calendar-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /*  パソコンで広がりすぎないように上限を決める */
+    margin: 20px auto; /* これが重要！「auto」にすることで自動的に左右中央寄せになります */
+    padding-top: 75%; /* 4:3の比率 */
+  }
+
+  /* カレンダーのタイトル（《営業カレンダー》）も中央寄せにする場合 */
+  #main-calendar h2 {
+    text-align: center; /*  文字も真ん中に寄せます */
+  }
+
+  /* カレンダーのiframe（ここは変更なし） */
+  .calendar-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .access_info {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .takeout-content {
+    max-width: 600px;
+    margin: 0 auto 50px;
+    text-align: center;
+  }
+  .takeout-list {
+    text-align: left;
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px 0;
+    background: #333;
+    color: #fff;
+    margin-top: 50px;
+  }
+}
+/* マップ全体の枠（中央寄せ & 最大幅の設定） */
+.access-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /*  HTMLの横幅(width="600")に合わせて上限を決めます */
+  margin: 20px auto; /* これでマップも自動的に左右中央寄せになります！ */
+  padding-top: 75%; /* 4:3の比率でスマホでも綺麗に縮小させます */
+}
+
+/* マップのiframeを枠いっぱいに広げる（もし書いてなければ追加してください） */
+.access-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ==========================================
+   スマホ表示用スタイル (画面幅 767px 以下)
+   ========================================== */
+@media screen and (max-width: 767px) {
+  body {
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+
+  /* ヘッダーを縦並びに */
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px 0;
+  }
+  header .logo_img {
+    width: 60% !important;
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .site_reserve {
+    width: 100%;
+    text-align: center;
+  }
+  .site_reserve h3,
+  .site_reserve h2 {
+    text-align: center;
+  }
+  .site_reserve h3 {
+    font-size: 15px; /* スマホでも文字サイズを大きく (元は13px) */
+  }
+  .site_reserve h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  .site_reserve a {
+    font-size: 13px;
+    padding: 6px 16px;
+  }
+
+  /* スマホのナビゲーション（ハンバーガーメニュー化） */
+  .nav-toggle {
+    display: flex !important;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    background: #6f4c5b;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    transition: all 0.3s ease;
+  }
+  /* 三本線からXへのアニメーション */
+  .nav-toggle.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-menu {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 250px !important;
+    height: 100vh !important;
+    background-color: rgba(111, 76, 91, 0.95) !important; /* テーマカラー #6f4c5b */
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    margin: 0 !important;
+    padding: 80px 0 20px 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    list-style: none !important;
+    z-index: 999 !important;
+    transform: translateX(100%) !important;
+    transition: transform 0.3s ease !important;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.15) !important;
+  }
+  .nav-menu.open {
+    transform: translateX(0) !important;
+  }
+  .nav-menu li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+  }
+  .nav-menu li a {
+    display: block !important;
+    padding: 16px !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    background: transparent !important;
+    text-align: center !important;
+  }
+
+  /* スマホ用の画像6枚：上3枚・下3枚にコンパクトに縮小 */
+  .event-gallery {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 5px !important;
+    margin: 15px 0 !important;
+  }
+  .event-gallery img {
+    width: 100% !important;
+    height: 75px !important;
+    object-fit: cover !important;
+    margin: 0 !important;
+  }
+
+  /* その他の大きな画像は画面幅に綺麗に合わせる */
+  main img {
+    width: 100% !important;
+    height: auto !important;
+  }
+  .section_logo {
+    max-width: 80% !important;
+    margin: 30px auto 15px !important;
+  }
+
+  /* コンセプト・メニューのスマホ調整 */
+  .concept-block {
+    margin-bottom: 30px;
+  }
+  .concept-block p {
+    font-size: 14px;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .menu_category {
+    margin-bottom: 35px;
+  }
+  .menu_category h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  .menu_category ul,
+  .takeout-list {
+    font-size: 16px !important; /* メニュー名の文字サイズを少し大きく (Mobile, 元は14px) */
+    padding-left: 20px !important;
+    width: 85% !important;
+    margin: 10px auto !important;
+  }
+
+  /* マップ・カレンダーのスマホサイズ固定（はみ出さない） */
+  .calendar_news iframe,
+  .access_map iframe {
+    width: 100% !important;
+    height: 320px !important;
+    display: block !important;
+    margin: 10px 0 !important;
+  }
+  .access_info {
+    text-align: center;
+  }
+  .access_info h2 {
+    text-align: center;
+    font-size: 20px;
+  }
+  .access_info .btn {
+    font-size: 14px;
+  }
+
+  .takeout-content {
+    margin-bottom: 35px;
+  }
+  .takeout-list {
+    text-align: left !important;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #333;
+    color: #fff;
+    margin-top: 40px;
+  }
+}
+/* ==========================================
+   スマホ表示用スタイル (画面幅 767px 以下) の中に追加
+   ========================================== */
+@media screen and (max-width: 767px) {
+  /* ★テイクアウト画像のスマホ調整★ */
+  .takeout-gallery {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    margin: 10px auto !important;
+    width: 90% !important;
+  }
+  .takeout-gallery img {
+    aspect-ratio: 3 / 4 !important;
+    height: auto !important;
+    object-fit: cover !important;
+  }
+}
+/* 枠全体を真ん中寄せにする */
+.insta-container {
+  text-align: center;
+  margin: 30px auto;
+  width: 100%;
+}
+
+/* ボタンの見た目（お好みで変えて大丈夫です） */
+.insta-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: linear-gradient(
+    45deg,
+    #f09433,
+    #e6683c,
+    #dc2743,
+    #cc2366,
+    #bc1888
+  );
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 25px;
+}
+/* 薄いピンクの角丸の囲み枠 */
+.concept-box {
+  background-color: #fff0f2; /* 上品で薄いピンク色 */
+  border-radius: 15px; /* 角を丸くする設定（角丸） */
+  padding: 30px 20px; /* 上下左右の枠内の余白 */
+  margin: 40px auto; /*  パソコンでもスマホでも自動で中央寄せ */
+  max-width: 650px; /* パソコンで広がりすぎないための最大幅 */
+  width: 90%; /* スマホ画面で左右に少し余白を作るための設定 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* ほんのり優しい影 */
+}
+
+/* 中の文章を中央寄せにする */
+.concept-text {
+  text-align: center; /* 文章を真ん中寄せ */
+  font-size: 16px; /* 文字の大きさ */
+  line-height: 1.8; /* 行の間隔（読みやすくなります） */
+  color: #4a4a4a; /* 文字の色（きつい黒ではなく優しいチャコール） */
+  margin-bottom: 20px; /* 文章と文章の間の隙間 */
+}
+
+/* 最後の文章だけ下の隙間をなしにする */
+.concept-text:last-child {
+  margin-bottom: 0;
+}
